@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Walks : MonoBehaviour
+public class Walk : MonoBehaviour
 {
     Animator anim;
     int JumpButtonPressed = Animator.StringToHash("JumpButtonPressed");
-    int FireButtonPressed = Animator.StringToHash("FireButtonPressed");
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -24,14 +23,6 @@ public class Walks : MonoBehaviour
             else if (Input.GetKeyUp(KeyCode.Space))
             {
                 anim.ResetTrigger(JumpButtonPressed);
-            }
-            else if (Input.GetKeyDown(KeyCode.F))
-            {
-                anim.SetTrigger(FireButtonPressed);
-            }
-            else if (Input.GetKeyUp(KeyCode.F))
-            {
-                anim.ResetTrigger(FireButtonPressed);
             }
         }
     }
