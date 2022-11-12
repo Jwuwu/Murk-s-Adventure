@@ -5,6 +5,7 @@ public class Walk : MonoBehaviour
 {
     Animator anim;
     int JumpButtonPressed = Animator.StringToHash("JumpButtonPressed");
+    int FireButtonPressed = Animator.StringToHash("FireButtonPressed");
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -24,6 +25,14 @@ public class Walk : MonoBehaviour
             {
                 anim.ResetTrigger(JumpButtonPressed);
             }
+            else if (Input.GetKeyDown(KeyCode.F))
+            {
+                anim.SetTrigger(FireButtonPressed);
+            }
+            else if (Input.GetKeyUp(KeyCode.F))
+            {
+                anim.ResetTrigger(FireButtonPressed);
+            }
         }
     }
     void Movement()
@@ -40,7 +49,7 @@ public class Walk : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump"))
         {
-            transform.Translate(Vector2.up * 10f * Time.deltaTime);
+            transform.Translate(Vector2.up * 250f * Time.deltaTime);
         }
     }
 }
