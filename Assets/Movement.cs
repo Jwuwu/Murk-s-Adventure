@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float speed;
+    public float jump;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         float H = Input.GetAxis("Horizontal"), J = Input.GetAxis("Jump");
-        Vector2 V = new Vector2(H, J);
+        Vector2 V = new Vector2(H * speed, J * jump);
         GetComponent<Rigidbody2D>().velocity = V;
     }
 }
